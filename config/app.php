@@ -178,8 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         //laravel collective/html agregado manual
         Collective\Html\HtmlServiceProvider::class,
-        'Cviebrock\EloquentSluggable\SluggableServiceProvider',
-
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
     ],
 
     /*
