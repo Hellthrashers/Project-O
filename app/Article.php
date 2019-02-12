@@ -3,23 +3,25 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
-use Cviebrock\EloquentSluggable\SluggableInterface;
-use Cviebrock\EloquentSluggable\SluggableTrait;
-
-class Article extends Model implements SluggableInterface
+class Article extends Model
 {
     //tabla de articulos iniciada
     protected $table="articles";
     //campos a extraer de la tabla articles
     protected $fillable=['title','content','user_id','category_id'];
 
-    use SluggableTrait;
+    use Sluggable;
 
-	protected $sluggable = array(
-		'build_from' => 'title',
-		'save_to'    => 'slug',
-	);
+	public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 
     //funciones para realizar las relaciones uno a muchos
     public function category() 
