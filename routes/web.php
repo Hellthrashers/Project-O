@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,5 +17,8 @@ use Illuminate\View\View;
 Route::get('/', function () {
     return view('welcome');
 });
+//enrutamiento con prefijo
+Route::group(['prefix' => 'admin'], function () {
 
-Route::get('view/test/{id}', 'testController@view');
+    Route::resource('users', 'UsersController');
+});
