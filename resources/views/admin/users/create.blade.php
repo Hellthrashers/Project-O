@@ -11,8 +11,24 @@
 
     <div class="form-group">
         {!! Form::label('email','Correo Electronico') !!}
-        {!! Form::text('email', null, ['class' => 'form-control','placeholder' => 'Correo electronico','required']) !!}
+        {!! Form::text('email', null, ['class' => 'form-control','placeholder' => 'Correo electrónico','required']) !!}
     </div>
+
+    <div class="form-group">
+        {!! Form::label('password','Contraseña') !!}
+        {!! Form::password('password', ['class' => 'form-control','placeholder' => 'Contraseña','required']) !!}
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('type', 'Tipo') !!}
+        {!! Form::select('type', [''=>'Seleccione un nivel','member' =>'Miembro','admin' => 'Administrador'], null, ['class' => 'form-control']) !!}
+    </div>
+
+    <div class="form-group">
+        {!! Form::submit('Registrar',['class' => 'btn btn-primary']) !!}
+    </div>
+
+
 
 {!! Form::close() !!}
 @endsection
