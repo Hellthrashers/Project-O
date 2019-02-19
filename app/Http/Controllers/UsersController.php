@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Laracasts\Flash\Flash;
 
 class UsersController extends Controller
 {
@@ -37,10 +38,12 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
+
         $user = new User($request->all());
         $user-> save();
-
-
+        //enviamos mensaje de usuario registrado y redirigimos a index usuarios
+        flash('Usuario registrado ' . $user->name . ' exitoso!')->success();
+        return redirect()->route('users.index');
     }
 
     /**
