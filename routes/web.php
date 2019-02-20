@@ -25,4 +25,5 @@ Route::group(['prefix' => 'admin'], function () {
     ['uses' => 'UsersController@destroy',
     'as' => 'admin.users.destroy'
     ]);
+    
 });
