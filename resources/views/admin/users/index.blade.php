@@ -25,14 +25,14 @@
                 </td>
                 <td>
                     @if($user->type == "admin")
-                        <span class="btn btn-danger">{{$user->type}}</span>    
+                        <span class="btn btn-danger">{{$user->type}}</span>
                     @else
                         <span class="btn btn-primary">{{$user->type}}</span> 
                     @endif
                     
                 </td>
                 <td>
-                   <a href="" class="btn btn-danger"></a> <a href="" class="btn btn-warning"></a> 
+                   <a href="" class="btn btn-danger"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span></a> <a href="{{ route('admin.users.destroy', $user->id) }}" onclick="return confirm('¿Seguro que desea eliminar el registro?')" class="btn btn-warning"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></a> 
                 </td>
                 
             </tr>    
