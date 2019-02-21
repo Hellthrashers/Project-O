@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Laracasts\Flash\Flash;
+use App\Http\Requests\CategoriesRequest;
+use App\Category;
 
 class CategoriesController extends Controller
 {
@@ -13,7 +17,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::orderBy('id','ASC')->paginate(5);
+
+        return view('admin.categories.index')->with('categories',$categories);
     }
 
     /**
@@ -32,9 +38,13 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoriesRequest $request)
     {
-        //
+        $category =  new Category($request->all());
+        $category -> save();
+        flash('Categoria registrada ' . $category->name . ' exitosa!')->success();
+        return redirect()->route('categories.index');
+        
     }
 
     /**
@@ -79,6 +89,9 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+        flash('Categoria Eliminada ' . $category->name. ' exitosa')->error();
+        return redirect()->route('categories.index');
     }
 }

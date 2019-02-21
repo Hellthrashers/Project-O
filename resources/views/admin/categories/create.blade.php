@@ -3,7 +3,7 @@
 
 @section('content')
 
-{!! Form::open(['route' => 'categories.store']) !!}
+{!! Form::open(['route' => 'categories.index']) !!}
 
     <div class="form-group">
         {!! Form::label('name','Nombre Categoría') !!}
