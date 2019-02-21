@@ -32,8 +32,8 @@
                     
                 </td>
                 <td>
-                   <a href="{{ route('users.edit', $user->id) }}" class="btn btn-danger"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span></a> 
-                   <a href="{{ route('admin.users.destroy', $user->id) }}" onclick="return confirm('¿Seguro que desea eliminar el registro?')" class="btn btn-warning"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></a> 
+                   <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning"><i class="glyphicon glyphicon-edit"></i></a> 
+                   <a href="{{ route('admin.users.destroy', $user->id) }}" onclick="return confirm('¿Seguro que desea eliminar el registro?')" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign" aria-hidden="true"></span></a> 
                 </td>
                 
             </tr>    

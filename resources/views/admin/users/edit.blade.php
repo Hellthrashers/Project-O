@@ -2,7 +2,7 @@
 @section('title', 'Editar usuario '. $user->name)
     
 @section('content')
-{!! Form::open(['route' => ['users.edit', $user->id]]) !!}
+{!! Form::open(['method' => 'PUT','route' => ['users.update', $user->id]]) !!}
 
     <div class="form-group">
         {!! Form::label('name','Nombre') !!}
@@ -16,7 +16,7 @@
 
     <div class="form-group">
         {!! Form::label('type', 'Tipo') !!}
-        {!! Form::select('type', [''=>'Seleccione un nivel','member' =>'Miembro','admin' => 'Administrador'], null, ['class' => 'form-control']) !!}
+        {!! Form::select('type', ['member' =>'Miembro','admin' => 'Administrador'], null, ['class' => 'form-control']) !!}
     </div>
 
     <div class="form-group">

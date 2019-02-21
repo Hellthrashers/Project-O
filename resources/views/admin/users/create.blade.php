@@ -2,6 +2,7 @@
 @section('title', 'crear usuario')
     
 @section('content')
+
 {!! Form::open(['route' => 'users.store']) !!}
 
     <div class="form-group">
@@ -27,8 +28,6 @@
     <div class="form-group">
         {!! Form::submit('Registrar',['class' => 'btn btn-primary']) !!}
     </div>
-
-
 
 {!! Form::close() !!}
 @endsection

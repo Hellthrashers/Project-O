@@ -12,7 +12,9 @@
 <body>
     @include('admin.template.partials.nav')
     <section>
-    @include('flash::message') @yield('content')
+    @include('flash::message') 
+    @include('admin.template.partials.error')
+    @yield('content')
     </section>
     <script type="text/javascript" src="{{ asset('jquery/jquery-3.3.1.js')}}"></script>
     <script type="text/javascript" src="{{ asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
