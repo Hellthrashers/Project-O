@@ -66,7 +66,8 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category= Category::find($id);
+        return view('admin.categories.edit')->with('category', $category);
     }
 
     /**
@@ -78,7 +79,12 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Category::find($id);
+        $category ->fill($request->all());
+        $category->save();
+
+        flash('Categoría: ' . $category->name . ' modificada!')->important();
+        return redirect()->route('categories.index');
     }
 
     /**
